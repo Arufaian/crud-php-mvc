@@ -11,7 +11,7 @@
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="responsive-layout/css/styles.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body class="bg-light">
@@ -249,7 +249,7 @@
     <!-- Bootstrap 5 JS Bundle (includes Popper) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Custom JS -->
-    <script src="responsive-layout/js/resize.js"></script>
+    <script src="assets/js/resize.js"></script>
 </body>
 
 </html>
