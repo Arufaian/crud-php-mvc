@@ -11,8 +11,12 @@ class UserController {
     }
 
     public function index() {
+        require_once __DIR__ . '/../views/dashboard.php';
+    }
+
+    public function users() {
         $users = $this->userModel->getAll();
-        require_once __DIR__ . '/../views/index.php';
+        require_once __DIR__ . '/../views/users.php';
     }
 
     public function create() {
@@ -21,7 +25,7 @@ class UserController {
             $email = $_POST['email'] ?? '';
 
             if ($this->userModel->create($name, $email)) {
-                header('Location: index.php?action=index');
+                header('Location: index.php?action=users');
                 exit();
             }
         }
@@ -32,7 +36,7 @@ class UserController {
         $user = $this->userModel->getById($id);
 
         if (!$user) {
-            header('Location: index.php?action=index');
+            header('Location: index.php?action=users');
             exit();
         }
 
@@ -41,7 +45,7 @@ class UserController {
             $email = $_POST['email'] ?? '';
 
             if ($this->userModel->update($id, $name, $email)) {
-                header('Location: index.php?action=index');
+                header('Location: index.php?action=users');
                 exit();
             }
         }
@@ -50,7 +54,7 @@ class UserController {
 
     public function delete($id) {
         if ($this->userModel->delete($id)) {
-            header('Location: index.php?action=index');
+            header('Location: index.php?action=users');
             exit();
         }
     }

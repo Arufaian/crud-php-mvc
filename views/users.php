@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Add New User">
-    <title>Add New User - CRUD</title>
+    <meta name="description" content="User Management">
+    <title>User Management - CRUD</title>
 
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -81,7 +82,7 @@
                     <i class="bi bi-house-fill"></i>
                     <span>Home</span>
                 </a>
-                <a href="index.php?action=users" class="nav-link d-flex align-items-center gap-2 rounded-0">
+                <a href="index.php?action=users" class="nav-link active d-flex align-items-center gap-2 rounded-0">
                     <i class="bi bi-people"></i>
                     <span>Users</span>
                 </a>
@@ -152,7 +153,7 @@
                         <i class="bi bi-house-fill"></i>
                         <span>Home</span>
                     </a>
-                    <a href="index.php?action=users" class="nav-link d-flex align-items-center gap-2 rounded-0 ps-3">
+                    <a href="index.php?action=users" class="nav-link active d-flex align-items-center gap-2 rounded-0 ps-3">
                         <i class="bi bi-people"></i>
                         <span>Users</span>
                     </a>
@@ -202,43 +203,61 @@
                 <div class="page-header mb-4">
                     <div class="row align-items-center">
                         <div class="col">
-                            <h1 class="h3 mb-1">Add New User</h1>
-                            <p class="text-muted mb-0">Create a new user in the system.</p>
+                            <h1 class="h3 mb-1">User Management</h1>
+                            <p class="text-muted mb-0">Manage and view all users in the system.</p>
                         </div>
                         <div class="col-auto">
-                            <a href="index.php?action=users" class="btn btn-secondary btn-sm">
-                                <i class="bi bi-arrow-left me-2"></i>Back to Users
+                            <a href="index.php?action=create" class="btn btn-primary btn-sm">
+                                <i class="bi bi-person-plus me-2"></i>Add New User
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Form Card -->
-                <div class="row">
-                    <div class="col-12 col-lg-6">
-                        <div class="card border-0 shadow-sm">
-                            <div class="card-body">
-                                <form method="POST" action="index.php?action=create">
-                                    <div class="mb-3">
-                                        <label for="name" class="form-label">Name</label>
-                                        <input type="text" class="form-control" id="name" name="name" required>
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label for="email" class="form-label">Email</label>
-                                        <input type="email" class="form-control" id="email" name="email" required>
-                                    </div>
-
-                                    <div class="d-flex gap-2">
-                                        <button type="submit" class="btn btn-primary">
-                                            <i class="bi bi-check-circle me-2"></i>Save
-                                        </button>
-                                        <a href="index.php?action=users" class="btn btn-outline-secondary">
-                                            <i class="bi bi-x-circle me-2"></i>Cancel
-                                        </a>
-                                    </div>
-                                </form>
-                            </div>
+                <!-- Users Table -->
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover mb-0">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Created At</th>
+                                        <th class="text-center">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php if (empty($users)): ?>
+                                        <tr>
+                                            <td colspan="5" class="text-center py-4">
+                                                <p class="text-muted mb-2">No users found</p>
+                                                <a href="index.php?action=create" class="btn btn-sm btn-primary">
+                                                    <i class="bi bi-person-plus me-1"></i>Add First User
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    <?php else: ?>
+                                        <?php foreach ($users as $user): ?>
+                                            <tr>
+                                                <td><strong><?php echo htmlspecialchars($user['id']); ?></strong></td>
+                                                <td><?php echo htmlspecialchars($user['name']); ?></td>
+                                                <td><?php echo htmlspecialchars($user['email']); ?></td>
+                                                <td><?php echo htmlspecialchars($user['created_at']); ?></td>
+                                                <td class="text-center">
+                                                    <a href="index.php?action=edit&id=<?php echo $user['id']; ?>" class="btn btn-warning btn-sm" title="Edit user">
+                                                        <i class="bi bi-pencil-square"></i>
+                                                    </a>
+                                                    <a href="index.php?action=delete&id=<?php echo $user['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this user?');" title="Delete user">
+                                                        <i class="bi bi-trash3"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>

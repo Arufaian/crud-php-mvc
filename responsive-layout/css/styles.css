@@ -1,0 +1,494 @@
+/* ============================================
+   Responsive Layout with Navbar - Custom CSS
+   Bootstrap 5 + Custom Styles
+   ============================================ */
+
+:root {
+    --sidebar-width: 280px;
+    --sidebar-min-width: 200px;
+    --sidebar-max-width: 450px;
+    --navbar-height: 56px;
+    --transition-speed: 0.3s;
+    --border-color: #e9ecef;
+    --sidebar-bg: #ffffff;
+    --sidebar-text: #495057;
+    --sidebar-hover-bg: #f8f9fa;
+    --resize-handle-width: 4px;
+}
+
+/* ============================================
+   Base Styles
+   ============================================ */
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* ============================================
+   Navbar Styles
+   ============================================ */
+
+.navbar {
+    height: var(--navbar-height);
+    z-index: 1030;
+    padding: 0.5rem 0;
+}
+
+.navbar-brand {
+    font-size: 1.25rem;
+    transition: color var(--transition-speed) ease;
+}
+
+.navbar-brand:hover {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.navbar-toggler {
+    border: none;
+    padding: 0.25rem 0.5rem;
+    transition: opacity var(--transition-speed) ease;
+}
+
+.navbar-toggler:hover {
+    opacity: 0.8;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25);
+}
+
+/* ============================================
+   Layout Container
+   ============================================ */
+
+.layout-container {
+    display: flex;
+    height: calc(100vh - var(--navbar-height));
+    position: relative;
+    overflow: hidden;
+}
+
+/* ============================================
+   Sidebar Styles (Desktop View lg+)
+   ============================================ */
+
+.sidebar {
+    width: var(--sidebar-width);
+    min-width: var(--sidebar-min-width);
+    max-width: var(--sidebar-max-width);
+    background-color: var(--sidebar-bg);
+    border-right: 1px solid var(--border-color);
+    flex-direction: column;
+    overflow-y: auto;
+    transition: width var(--transition-speed) ease;
+    position: relative;
+    z-index: 1020;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: #999;
+}
+
+/* Sidebar Header */
+.sidebar-header {
+    flex-shrink: 0;
+}
+
+.sidebar-header h5 {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    font-size: 0.75rem;
+}
+
+/* Navigation Links */
+.sidebar .nav-link {
+    color: var(--sidebar-text);
+    padding: 0.75rem 1rem;
+    margin: 0;
+    border-radius: 0;
+    transition: all var(--transition-speed) ease;
+    border-left: 3px solid transparent;
+    font-size: 0.95rem;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sidebar .nav-link:hover {
+    background-color: var(--sidebar-hover-bg);
+    color: #212529;
+    border-left-color: #0d6efd;
+    padding-left: calc(1rem - 3px);
+}
+
+.sidebar .nav-link.active {
+    background-color: #e7f1ff;
+    color: #0d6efd;
+    border-left-color: #0d6efd;
+    padding-left: calc(1rem - 3px);
+}
+
+.sidebar .nav-link.active:hover {
+    background-color: #d4e4ff;
+}
+
+.sidebar .nav-link i {
+    width: 20px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+/* Submenu Styles */
+.sidebar .collapse .nav-link {
+    font-size: 0.9rem;
+    color: #6c757d;
+    padding-left: 2.5rem;
+    border-left: 3px solid transparent;
+    padding-left: 2.5rem;
+}
+
+.sidebar .collapse .nav-link:hover {
+    background-color: var(--sidebar-hover-bg);
+    color: var(--sidebar-text);
+    border-left-color: transparent;
+}
+
+/* Resize Handle */
+.resize-handle {
+    width: var(--resize-handle-width);
+    background: linear-gradient(to right, transparent, #ddd, transparent);
+    cursor: col-resize;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1021;
+    opacity: 0;
+    transition: opacity var(--transition-speed) ease;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.sidebar:hover .resize-handle {
+    opacity: 1;
+    background: linear-gradient(to right, transparent, #999, transparent);
+}
+
+.resize-handle:hover {
+    background: linear-gradient(to right, transparent, #0d6efd, transparent);
+}
+
+.resize-handle.resizing {
+    opacity: 1;
+    background: linear-gradient(to right, transparent, #0d6efd, transparent);
+}
+
+/* ============================================
+   Main Content Styles
+   ============================================ */
+
+.main-content {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: margin-left var(--transition-speed) ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-wrapper {
+    flex: 1;
+    padding: 2rem;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Page Header */
+.page-header {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.page-header h1 {
+    color: #212529;
+    font-weight: 700;
+}
+
+.page-header p {
+    font-size: 0.95rem;
+}
+
+/* ============================================
+   Card Styles
+   ============================================ */
+
+.card {
+    transition: all var(--transition-speed) ease;
+    border-radius: 0.5rem;
+}
+
+.card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.card-header {
+    padding: 1rem 1.5rem;
+    background-color: #ffffff;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.card-header h5 {
+    color: #212529;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+/* ============================================
+   Table Styles
+   ============================================ */
+
+.table {
+    margin-bottom: 0;
+}
+
+.table thead th {
+    background-color: #f8f9fa;
+    color: #495057;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.table tbody tr {
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color var(--transition-speed) ease;
+}
+
+.table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.table td {
+    vertical-align: middle;
+    color: #495057;
+}
+
+/* ============================================
+   Offcanvas Styles (Mobile/Tablet View)
+   ============================================ */
+
+.offcanvas {
+    width: 100% !important;
+    max-width: 320px;
+}
+
+.offcanvas-header {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.offcanvas-body {
+    padding: 0;
+    overflow-y: auto;
+}
+
+.offcanvas .nav-link {
+    color: var(--sidebar-text);
+    padding: 0.75rem 1rem;
+    border-left: 3px solid transparent;
+    transition: all var(--transition-speed) ease;
+    font-weight: 500;
+}
+
+.offcanvas .nav-link:hover {
+    background-color: var(--sidebar-hover-bg);
+    color: #212529;
+    border-left-color: #0d6efd;
+}
+
+.offcanvas .nav-link.active {
+    background-color: #e7f1ff;
+    color: #0d6efd;
+    border-left-color: #0d6efd;
+}
+
+/* ============================================
+   Scrollbar Styles
+   ============================================ */
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+    transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #999;
+}
+
+/* ============================================
+   Responsive Breakpoints
+   ============================================ */
+
+/* Extra Small Devices (xs - < 576px) */
+@media (max-width: 575.98px) {
+    .content-wrapper {
+        padding: 1rem;
+    }
+
+    .page-header {
+        padding: 1rem;
+    }
+
+    .page-header h1 {
+        font-size: 1.25rem;
+    }
+
+    .card-body {
+        padding: 1rem;
+    }
+
+    .sidebar-header {
+        padding: 0.75rem 1rem !important;
+    }
+
+    .navbar-brand {
+        font-size: 1.1rem;
+    }
+}
+
+/* Small Devices (sm - 576px to 767.98px) */
+@media (max-width: 767.98px) {
+    .content-wrapper {
+        padding: 1.5rem;
+    }
+
+    .page-header {
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* Medium Devices (md - 768px to 991.98px) */
+@media (max-width: 991.98px) {
+    .offcanvas {
+        max-width: 340px;
+    }
+}
+
+/* Large Devices and Above (lg+ - 992px and above) */
+@media (min-width: 992px) {
+    .sidebar {
+        display: flex !important;
+    }
+
+    .offcanvas.offcanvas-start {
+        display: none;
+    }
+}
+
+/* ============================================
+   Print Styles
+   ============================================ */
+
+@media print {
+    .navbar,
+    .sidebar,
+    .resize-handle,
+    .navbar-toggler {
+        display: none !important;
+    }
+
+    .layout-container {
+        height: auto;
+        margin-top: 0;
+    }
+
+    .main-content {
+        overflow: visible;
+    }
+
+    .content-wrapper {
+        padding: 0;
+        max-width: 100%;
+    }
+
+    .card {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    .table {
+        border-collapse: collapse;
+    }
+}
+
+/* ============================================
+   Accessibility & Focus States
+   ============================================ */
+
+a:focus,
+button:focus,
+.nav-link:focus {
+    outline: 2px solid #0d6efd;
+    outline-offset: 2px;
+}
+
+/* Reduce motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+

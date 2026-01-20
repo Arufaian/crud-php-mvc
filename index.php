@@ -11,6 +11,9 @@ switch ($action) {
     case 'index':
         $controller->index();
         break;
+    case 'users':
+        $controller->users();
+        break;
     case 'create':
         $controller->create();
         break;
@@ -18,7 +21,7 @@ switch ($action) {
         if ($id) {
             $controller->edit($id);
         } else {
-            header('Location: index.php?action=index');
+            header('Location: index.php?action=users');
             exit();
         }
         break;
@@ -26,7 +29,7 @@ switch ($action) {
         if ($id) {
             $controller->delete($id);
         } else {
-            header('Location: index.php?action=index');
+            header('Location: index.php?action=users');
             exit();
         }
         break;
