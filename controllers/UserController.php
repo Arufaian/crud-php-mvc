@@ -11,12 +11,12 @@ class UserController {
     }
 
     public function index() {
-        require_once __DIR__ . '/../views/dashboard.php';
+        require_once __DIR__ . '/../views/dashboard/index.php';
     }
 
     public function users() {
         $users = $this->userModel->getAll();
-        require_once __DIR__ . '/../views/users.php';
+        require_once __DIR__ . '/../views/user/index.php';
     }
 
     public function create() {
@@ -29,7 +29,7 @@ class UserController {
                 exit();
             }
         }
-        require_once __DIR__ . '/../views/create.php';
+        require_once __DIR__ . '/../views/user/create.php';
     }
 
     public function edit($id) {
@@ -49,7 +49,7 @@ class UserController {
                 exit();
             }
         }
-        require_once __DIR__ . '/../views/edit.php';
+        require_once __DIR__ . '/../views/user/edit.php';
     }
 
     public function delete($id) {
