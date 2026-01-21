@@ -25,7 +25,7 @@ class KelasController {
             $komp_keahlian = $_POST['komp_keahlian'] ?? 0;
 
             if ($this->kelasModel->create($nama_kelas, $komp_keahlian)) {
-                header('Location: index.php?action=kelas');
+                header('Location: index.php?controller=kelas&action=kelas');
                 exit();
             }
         }
@@ -36,7 +36,7 @@ class KelasController {
         $kelas = $this->kelasModel->getById($id);
 
         if (!$kelas) {
-            header('Location: index.php?action=kelas');
+            header('Location: index.php?controller=kelas&action=kelas');
             exit();
         }
 
@@ -45,7 +45,7 @@ class KelasController {
             $komp_keahlian = $_POST['komp_keahlian'] ?? 0;
 
             if ($this->kelasModel->update($id, $nama_kelas, $komp_keahlian)) {
-                header('Location: index.php?action=kelas');
+                header('Location: index.php?controller=kelas&action=kelas');
                 exit();
             }
         }
@@ -54,7 +54,7 @@ class KelasController {
 
     public function delete($id) {
         if ($this->kelasModel->delete($id)) {
-            header('Location: index.php?action=kelas');
+            header('Location: index.php?controller=kelas&action=kelas');
             exit();
         }
     }

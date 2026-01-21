@@ -12,7 +12,7 @@
                         <p class="text-muted mb-0">Perbarui informasi kelas.</p>
                     </div>
                     <div class="col-auto">
-                        <a href="index.php?action=kelas" class="btn btn-secondary btn-sm">
+                        <a href="index.php?controller=kelas&action=kelas" class="btn btn-secondary btn-sm">
                             <i class="bi bi-arrow-left me-2"></i>Kembali ke Kelas
                         </a>
                     </div>
@@ -24,7 +24,7 @@
                 <div class="col-12 col-lg-6">
                     <div class="card border-0 shadow-sm">
                         <div class="card-body">
-                            <form method="POST" action="index.php?action=edit&id=<?php echo $kelas['id_kelas']; ?>">
+                                <form method="POST" action="index.php?controller=kelas&action=edit&id=<?php echo $kelas['id_kelas']; ?>">
                                 <div class="mb-3">
                                     <label for="nama_kelas" class="form-label">Nama Kelas</label>
                                     <input type="text" class="form-control" id="nama_kelas" name="nama_kelas" value="<?php echo htmlspecialchars($kelas['nama_kelas']); ?>" required>
@@ -39,7 +39,7 @@
                                     <button type="submit" class="btn btn-primary">
                                         <i class="bi bi-check-circle me-2"></i>Perbarui
                                     </button>
-                                    <a href="index.php?action=kelas" class="btn btn-outline-secondary">
+                                    <a href="index.php?controller=kelas&action=kelas" class="btn btn-outline-secondary">
                                         <i class="bi bi-x-circle me-2"></i>Batal
                                     </a>
                                 </div>

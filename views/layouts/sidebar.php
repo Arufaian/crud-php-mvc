@@ -8,15 +8,15 @@
                 </div>
 
                 <!-- Navigation Items -->
-                <a href="index.php?action=index" class="nav-link <?php echo Router::isActive('index') ? 'active' : ''; ?> d-flex align-items-center gap-2 rounded-0">
+                <a href="index.php?controller=petugas&action=index" class="nav-link <?php echo Router::isActive('index', 'petugas') ? 'active' : ''; ?> d-flex align-items-center gap-2 rounded-0">
                     <i class="bi bi-house-fill"></i>
                     <span>Home</span>
                 </a>
-                <a href="index.php?action=petugas" class="nav-link <?php echo Router::isActive('petugas') ? 'active' : ''; ?> d-flex align-items-center gap-2 rounded-0">
+                <a href="index.php?controller=petugas&action=petugas" class="nav-link <?php echo Router::isActive('petugas', 'petugas') ? 'active' : ''; ?> d-flex align-items-center gap-2 rounded-0">
                     <i class="bi bi-people"></i>
                     <span>Petugas</span>
                 </a>
-                <a href="index.php?action=kelas" class="nav-link <?php echo Router::isActive('kelas') ? 'active' : ''; ?> d-flex align-items-center gap-2 rounded-0">
+                <a href="index.php?controller=kelas&action=kelas" class="nav-link <?php echo Router::isActive('kelas', 'kelas') ? 'active' : ''; ?> d-flex align-items-center gap-2 rounded-0">
                     <i class="bi bi-mortarboard"></i>
                     <span>Kelas</span>
                 </a>
@@ -83,15 +83,15 @@
                     </div>
 
                     <!-- Navigation Items (Mobile) -->
-                    <a href="index.php?action=index" class="nav-link <?php echo Router::isActive('index') ? 'active' : ''; ?> d-flex align-items-center gap-2 rounded-0 ps-3">
+                    <a href="index.php?controller=petugas&action=index" class="nav-link <?php echo Router::isActive('index', 'petugas') ? 'active' : ''; ?> d-flex align-items-center gap-2 rounded-0 ps-3">
                         <i class="bi bi-house-fill"></i>
                         <span>Home</span>
                     </a>
-                    <a href="index.php?action=petugas" class="nav-link <?php echo Router::isActive('petugas') ? 'active' : ''; ?> d-flex align-items-center gap-2 rounded-0 ps-3">
+                    <a href="index.php?controller=petugas&action=petugas" class="nav-link <?php echo Router::isActive('petugas', 'petugas') ? 'active' : ''; ?> d-flex align-items-center gap-2 rounded-0 ps-3">
                         <i class="bi bi-people"></i>
                         <span>Petugas</span>
                     </a>
-                    <a href="index.php?action=kelas" class="nav-link <?php echo Router::isActive('kelas') ? 'active' : ''; ?> d-flex align-items-center gap-2 rounded-0 ps-3">
+                    <a href="index.php?controller=kelas&action=kelas" class="nav-link <?php echo Router::isActive('kelas', 'kelas') ? 'active' : ''; ?> d-flex align-items-center gap-2 rounded-0 ps-3">
                         <i class="bi bi-mortarboard"></i>
                         <span>Kelas</span>
                     </a>

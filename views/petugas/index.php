@@ -12,7 +12,7 @@
                         <p class="text-muted mb-0">Kelola dan lihat semua petugas dalam sistem.</p>
                     </div>
                     <div class="col-auto">
-                        <a href="index.php?action=create" class="btn btn-primary btn-sm">
+                        <a href="index.php?controller=petugas&action=create" class="btn btn-primary btn-sm">
                             <i class="bi bi-person-plus me-2"></i>Tambah Petugas Baru
                         </a>
                     </div>
@@ -38,7 +38,7 @@
                                     <tr>
                                         <td colspan="5" class="text-center py-4">
                                             <p class="text-muted mb-2">Tidak ada petugas ditemukan</p>
-                                            <a href="index.php?action=create" class="btn btn-sm btn-primary">
+                                            <a href="index.php?controller=petugas&action=create" class="btn btn-sm btn-primary">
                                                 <i class="bi bi-person-plus me-1"></i>Tambah Petugas Pertama
                                             </a>
                                         </td>
@@ -55,10 +55,10 @@
                                                 </span>
                                             </td>
                                             <td class="text-center">
-                                                <a href="index.php?action=edit&id=<?php echo $p['id_petugas']; ?>" class="btn btn-warning btn-sm" title="Edit petugas">
+                                                <a href="index.php?controller=petugas&action=edit&id=<?php echo $p['id_petugas']; ?>" class="btn btn-warning btn-sm" title="Edit petugas">
                                                     <i class="bi bi-pencil-square"></i>
                                                 </a>
-                                                <a href="index.php?action=delete&id=<?php echo $p['id_petugas']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus petugas ini?');" title="Hapus petugas">
+                                                <a href="index.php?controller=petugas&action=delete&id=<?php echo $p['id_petugas']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus petugas ini?');" title="Hapus petugas">
                                                     <i class="bi bi-trash3"></i>
                                                 </a>
                                             </td>

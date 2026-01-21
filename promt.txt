@@ -1,0 +1,29 @@
+Context: I am working on a native PHP MVC project (crud-php-mvc). I have a routing system located in lib/Router.php that parses URL parameters to determine the Controller and Action.
+
+The Problem: When I navigate to the URL index.php?action=kelas, the application unexpectedly redirects me back to the dashboard (index.php?action=index).
+
+My Analysis: I suspect the issue lies in lib/Router.php. It seems to default to PetugasController if the controller parameter is missing. Since PetugasController does not have a method named kelas, the error handler catches this (likely as a 404) and forces a redirect to the dashboard.
+
+The Goal: I need to fix the navigation so that accessing the "Kelas" module works, and ensure the sidebar links are generating the correct URLs.
+
+Request:
+
+Analyze the logic in lib/Router.php and how it handles default controllers.
+
+Explain the root cause of why action=kelas triggers the redirect.
+
+Provide the Solution:
+
+If the issue is best fixed by changing the URL structure, provide the corrected HTML code for the Sidebar (views/layouts/sidebar.php) showing the proper href attributes (e.g., adding &controller=kelas).
+
+Alternatively, if the Router logic needs improvement to handle this case gracefully, provide the refactored PHP code for lib/Router.php.
+
+Files to Reference:
+
+lib/Router.php
+
+controllers/PetugasController.php
+
+controllers/KelasController.php
+
+views/layouts/sidebar.php

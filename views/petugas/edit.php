@@ -12,7 +12,7 @@
                         <p class="text-muted mb-0">Perbarui informasi petugas.</p>
                     </div>
                     <div class="col-auto">
-                        <a href="index.php?action=petugas" class="btn btn-secondary btn-sm">
+                        <a href="index.php?controller=petugas&action=petugas" class="btn btn-secondary btn-sm">
                             <i class="bi bi-arrow-left me-2"></i>Kembali ke Petugas
                         </a>
                     </div>
@@ -24,7 +24,7 @@
                 <div class="col-12 col-lg-6">
                     <div class="card border-0 shadow-sm">
                         <div class="card-body">
-                            <form method="POST" action="index.php?action=edit&id=<?php echo $petugas['id_petugas']; ?>">
+                                <form method="POST" action="index.php?controller=petugas&action=edit&id=<?php echo $petugas['id_petugas']; ?>">
                                 <div class="mb-3">
                                     <label for="username" class="form-label">Username</label>
                                     <input type="text" class="form-control" id="username" name="username" value="<?php echo htmlspecialchars($petugas['username']); ?>" required>
@@ -52,7 +52,7 @@
                                     <button type="submit" class="btn btn-primary">
                                         <i class="bi bi-check-circle me-2"></i>Perbarui
                                     </button>
-                                    <a href="index.php?action=petugas" class="btn btn-outline-secondary">
+                                    <a href="index.php?controller=petugas&action=petugas" class="btn btn-outline-secondary">
                                         <i class="bi bi-x-circle me-2"></i>Batal
                                     </a>
                                 </div>
