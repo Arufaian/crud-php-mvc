@@ -5,10 +5,10 @@ class Database {
     private $pdo;
 
     private function __construct() {
-        $host = 'db';
-        $dbname = 'crud_system';
+        $host = 'localhost';
+        $dbname = 'alfian_ujikom';
         $username = 'root';
-        $password = 'root';
+        $password = '';
 
         try {
             $this->pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);

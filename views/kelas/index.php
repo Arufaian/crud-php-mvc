@@ -8,18 +8,18 @@
             <div class="page-header mb-4">
                 <div class="row align-items-center">
                     <div class="col">
-                        <h1 class="h3 mb-1">User Management</h1>
-                        <p class="text-muted mb-0">Manage and view all users in the system.</p>
+                        <h1 class="h3 mb-1">Manajemen Kelas</h1>
+                        <p class="text-muted mb-0">Kelola dan lihat semua kelas dalam sistem.</p>
                     </div>
                     <div class="col-auto">
                         <a href="index.php?action=create" class="btn btn-primary btn-sm">
-                            <i class="bi bi-person-plus me-2"></i>Add New User
+                            <i class="bi bi-plus-circle me-2"></i>Tambah Kelas Baru
                         </a>
                     </div>
                 </div>
             </div>
 
-            <!-- Users Table -->
+            <!-- Kelas Table -->
             <div class="card border-0 shadow-sm">
                 <div class="card-body">
                     <div class="table-responsive">
@@ -27,34 +27,32 @@
                             <thead class="table-light">
                                 <tr>
                                     <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Created At</th>
-                                    <th class="text-center">Actions</th>
+                                    <th>Nama Kelas</th>
+                                    <th>Kompetensi Keahlian</th>
+                                    <th class="text-center">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php if (empty($users)): ?>
+                                <?php if (empty($kelas)): ?>
                                     <tr>
-                                        <td colspan="5" class="text-center py-4">
-                                            <p class="text-muted mb-2">No users found</p>
+                                        <td colspan="4" class="text-center py-4">
+                                            <p class="text-muted mb-2">Tidak ada kelas ditemukan</p>
                                             <a href="index.php?action=create" class="btn btn-sm btn-primary">
-                                                <i class="bi bi-person-plus me-1"></i>Add First User
+                                                <i class="bi bi-plus-circle me-1"></i>Tambah Kelas Pertama
                                             </a>
                                         </td>
                                     </tr>
                                 <?php else: ?>
-                                    <?php foreach ($users as $user): ?>
+                                    <?php foreach ($kelas as $k): ?>
                                         <tr>
-                                            <td><strong><?php echo htmlspecialchars($user['id']); ?></strong></td>
-                                            <td><?php echo htmlspecialchars($user['name']); ?></td>
-                                            <td><?php echo htmlspecialchars($user['email']); ?></td>
-                                            <td><?php echo htmlspecialchars($user['created_at']); ?></td>
+                                            <td><strong><?php echo htmlspecialchars($k['id_kelas']); ?></strong></td>
+                                            <td><?php echo htmlspecialchars($k['nama_kelas']); ?></td>
+                                            <td><?php echo htmlspecialchars($k['komp_keahlian']); ?></td>
                                             <td class="text-center">
-                                                <a href="index.php?action=edit&id=<?php echo $user['id']; ?>" class="btn btn-warning btn-sm" title="Edit user">
+                                                <a href="index.php?action=edit&id=<?php echo $k['id_kelas']; ?>" class="btn btn-warning btn-sm" title="Edit kelas">
                                                     <i class="bi bi-pencil-square"></i>
                                                 </a>
-                                                <a href="index.php?action=delete&id=<?php echo $user['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this user?');" title="Delete user">
+                                                <a href="index.php?action=delete&id=<?php echo $k['id_kelas']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus kelas ini?');" title="Hapus kelas">
                                                     <i class="bi bi-trash3"></i>
                                                 </a>
                                             </td>

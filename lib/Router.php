@@ -5,7 +5,7 @@ class Router {
     private $action;
     private $params;
     private $controllerPath;
-    private $defaultController = 'User';
+    private $defaultController = 'Petugas';
     private $defaultAction = 'index';
 
     public function __construct() {
@@ -16,12 +16,12 @@ class Router {
     /**
      * Parse URL parameters to extract controller and action
      * Supports both:
-     * - ?controller=user&action=create&id=1 (new format)
-     * - ?action=users&id=1 (legacy format - defaults to UserController)
+     * - ?controller=petugas&action=create&id=1 (new format)
+     * - ?action=petugas&id=1 (legacy format - defaults to PetugasController)
      */
     private function parseUrl() {
-        // Get controller parameter - default to 'user' if not specified
-        $rawController = $_GET['controller'] ?? 'user';
+        // Get controller parameter - default to 'petugas' if not specified
+        $rawController = $_GET['controller'] ?? 'petugas';
         
         // Capitalize first letter and append 'Controller'
         // e.g., 'user' becomes 'UserController'
@@ -115,7 +115,7 @@ class Router {
             $id = $this->params['id'] ?? null;
             if (!$id) {
                 // Redirect to default action if ID is missing
-                header('Location: index.php?action=users');
+                header('Location: index.php?action=petugas');
                 exit();
             }
             $controller->$action($id);
@@ -154,7 +154,7 @@ class Router {
      * Useful for determining active menu items in sidebar
      */
     public static function getCurrentRoute() {
-        $controller = $_GET['controller'] ?? 'user';
+        $controller = $_GET['controller'] ?? 'petugas';
         $action = $_GET['action'] ?? 'index';
         
         return [
@@ -167,8 +167,8 @@ class Router {
      * Check if a given route is active (matches current URL)
      * Supports flexible matching:
      * - isActive('index') - matches action=index
-     * - isActive('users') - matches action=users
-     * - isActive('user', 'create') - matches controller=user&action=create
+     * - isActive('petugas') - matches action=petugas
+     * - isActive('petugas', 'create') - matches controller=petugas&action=create
      * 
      * @param string $action The action to check
      * @param string|null $controller The controller to check (optional)

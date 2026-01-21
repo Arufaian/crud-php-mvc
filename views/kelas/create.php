@@ -8,12 +8,12 @@
             <div class="page-header mb-4">
                 <div class="row align-items-center">
                     <div class="col">
-                        <h1 class="h3 mb-1">Edit User</h1>
-                        <p class="text-muted mb-0">Update user information.</p>
+                        <h1 class="h3 mb-1">Tambah Kelas Baru</h1>
+                        <p class="text-muted mb-0">Buat kelas baru dalam sistem.</p>
                     </div>
                     <div class="col-auto">
-                        <a href="index.php?action=users" class="btn btn-secondary btn-sm">
-                            <i class="bi bi-arrow-left me-2"></i>Back to Users
+                        <a href="index.php?action=kelas" class="btn btn-secondary btn-sm">
+                            <i class="bi bi-arrow-left me-2"></i>Kembali ke Kelas
                         </a>
                     </div>
                 </div>
@@ -24,23 +24,23 @@
                 <div class="col-12 col-lg-6">
                     <div class="card border-0 shadow-sm">
                         <div class="card-body">
-                            <form method="POST" action="index.php?action=edit&id=<?php echo $user['id']; ?>">
+                            <form method="POST" action="index.php?action=create">
                                 <div class="mb-3">
-                                    <label for="name" class="form-label">Name</label>
-                                    <input type="text" class="form-control" id="name" name="name" value="<?php echo htmlspecialchars($user['name']); ?>" required>
+                                    <label for="nama_kelas" class="form-label">Nama Kelas</label>
+                                    <input type="text" class="form-control" id="nama_kelas" name="nama_kelas" placeholder="Contoh: XII PEMROG" required>
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="email" class="form-label">Email</label>
-                                    <input type="email" class="form-control" id="email" name="email" value="<?php echo htmlspecialchars($user['email']); ?>" required>
+                                    <label for="komp_keahlian" class="form-label">Kompetensi Keahlian</label>
+                                    <input type="number" class="form-control" id="komp_keahlian" name="komp_keahlian" value="0">
                                 </div>
 
                                 <div class="d-flex gap-2">
                                     <button type="submit" class="btn btn-primary">
-                                        <i class="bi bi-check-circle me-2"></i>Update
+                                        <i class="bi bi-check-circle me-2"></i>Simpan
                                     </button>
-                                    <a href="index.php?action=users" class="btn btn-outline-secondary">
-                                        <i class="bi bi-x-circle me-2"></i>Cancel
+                                    <a href="index.php?action=kelas" class="btn btn-outline-secondary">
+                                        <i class="bi bi-x-circle me-2"></i>Batal
                                     </a>
                                 </div>
                             </form>

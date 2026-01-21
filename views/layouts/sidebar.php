@@ -12,9 +12,13 @@
                     <i class="bi bi-house-fill"></i>
                     <span>Home</span>
                 </a>
-                <a href="index.php?action=users" class="nav-link <?php echo Router::isActive('users') ? 'active' : ''; ?> d-flex align-items-center gap-2 rounded-0">
+                <a href="index.php?action=petugas" class="nav-link <?php echo Router::isActive('petugas') ? 'active' : ''; ?> d-flex align-items-center gap-2 rounded-0">
                     <i class="bi bi-people"></i>
-                    <span>Users</span>
+                    <span>Petugas</span>
+                </a>
+                <a href="index.php?action=kelas" class="nav-link <?php echo Router::isActive('kelas') ? 'active' : ''; ?> d-flex align-items-center gap-2 rounded-0">
+                    <i class="bi bi-mortarboard"></i>
+                    <span>Kelas</span>
                 </a>
                 <a href="#" class="nav-link d-flex align-items-center gap-2 rounded-0">
                     <i class="bi bi-graph-up"></i>
@@ -83,9 +87,13 @@
                         <i class="bi bi-house-fill"></i>
                         <span>Home</span>
                     </a>
-                    <a href="index.php?action=users" class="nav-link <?php echo Router::isActive('users') ? 'active' : ''; ?> d-flex align-items-center gap-2 rounded-0 ps-3">
+                    <a href="index.php?action=petugas" class="nav-link <?php echo Router::isActive('petugas') ? 'active' : ''; ?> d-flex align-items-center gap-2 rounded-0 ps-3">
                         <i class="bi bi-people"></i>
-                        <span>Users</span>
+                        <span>Petugas</span>
+                    </a>
+                    <a href="index.php?action=kelas" class="nav-link <?php echo Router::isActive('kelas') ? 'active' : ''; ?> d-flex align-items-center gap-2 rounded-0 ps-3">
+                        <i class="bi bi-mortarboard"></i>
+                        <span>Kelas</span>
                     </a>
                     <a href="#" class="nav-link d-flex align-items-center gap-2 rounded-0 ps-3">
                         <i class="bi bi-graph-up"></i>
