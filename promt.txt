@@ -1,29 +1,43 @@
-Context: I am working on a native PHP MVC project (crud-php-mvc). I have a routing system located in lib/Router.php that parses URL parameters to determine the Controller and Action.
+generate the complete code for the following files based on the schema and requirements above. Follow the existing project coding style (PDO for database, require_once for views).
 
-The Problem: When I navigate to the URL index.php?action=kelas, the application unexpectedly redirects me back to the dashboard (index.php?action=index).
+models/Siswa.php:
 
-My Analysis: I suspect the issue lies in lib/Router.php. It seems to default to PetugasController if the controller parameter is missing. Since PetugasController does not have a method named kelas, the error handler catches this (likely as a 404) and forces a redirect to the dashboard.
+Class name: Siswa
 
-The Goal: I need to fix the navigation so that accessing the "Kelas" module works, and ensure the sidebar links are generating the correct URLs.
+Methods: getAll(), getById($id), create($data), update($id, $data), delete($id).
 
-Request:
+Note: Since there are foreign keys (id_kelas, id_spp), for now just treat them as standard inputs.
 
-Analyze the logic in lib/Router.php and how it handles default controllers.
+controllers/SiswaController.php:
 
-Explain the root cause of why action=kelas triggers the redirect.
+Class name: SiswaController
 
-Provide the Solution:
+Methods: index(), create(), edit($id), delete($id).
 
-If the issue is best fixed by changing the URL structure, provide the corrected HTML code for the Sidebar (views/layouts/sidebar.php) showing the proper href attributes (e.g., adding &controller=kelas).
+Ensure all redirects use index.php?controller=siswa&action=index.
 
-Alternatively, if the Router logic needs improvement to handle this case gracefully, provide the refactored PHP code for lib/Router.php.
+views/siswa/index.php:
 
-Files to Reference:
+Display a table of students.
 
-lib/Router.php
+"Add New" button must link to index.php?controller=siswa&action=create.
 
-controllers/PetugasController.php
+Edit/Delete links must include controller=siswa.
 
-controllers/KelasController.php
+views/siswa/create.php and views/siswa/edit.php:
 
-views/layouts/sidebar.php
+Forms must point to action="index.php?controller=siswa&action=...".
+
+Snippet for views/layouts/sidebar.php:
+
+Provide the HTML <a> tag to add to the sidebar menu.
+
+It must use href="index.php?controller=siswa&action=index".
+
+Include the Router::isActive('index', 'siswa') check for the active class.
+
+Files for Context (Use existing style):
+
+Reference config/Database.php for connection.
+
+Reference views/layouts/header.php, sidebar.php, footer.php for layout structure.

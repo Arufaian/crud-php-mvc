@@ -20,6 +20,14 @@
                     <i class="bi bi-mortarboard"></i>
                     <span>Kelas</span>
                 </a>
+                <a href="index.php?controller=siswa&action=index" class="nav-link <?php echo Router::isActive('index', 'siswa') ? 'active' : ''; ?> d-flex align-items-center gap-2 rounded-0">
+                    <i class="bi bi-person-badge"></i>
+                    <span>Siswa</span>
+                </a>
+                <a href="index.php?controller=spp&action=index" class="nav-link <?php echo Router::isActive('index', 'spp') ? 'active' : ''; ?> d-flex align-items-center gap-2 rounded-0">
+                    <i class="bi bi-cash-stack"></i>
+                    <span>SPP</span>
+                </a>
                 <a href="#" class="nav-link d-flex align-items-center gap-2 rounded-0">
                     <i class="bi bi-graph-up"></i>
                     <span>Analytics</span>
@@ -94,6 +102,14 @@
                     <a href="index.php?controller=kelas&action=kelas" class="nav-link <?php echo Router::isActive('kelas', 'kelas') ? 'active' : ''; ?> d-flex align-items-center gap-2 rounded-0 ps-3">
                         <i class="bi bi-mortarboard"></i>
                         <span>Kelas</span>
+                    </a>
+                    <a href="index.php?controller=siswa&action=index" class="nav-link <?php echo Router::isActive('index', 'siswa') ? 'active' : ''; ?> d-flex align-items-center gap-2 rounded-0 ps-3">
+                        <i class="bi bi-person-badge"></i>
+                        <span>Siswa</span>
+                    </a>
+                    <a href="index.php?controller=spp&action=index" class="nav-link <?php echo Router::isActive('index', 'spp') ? 'active' : ''; ?> d-flex align-items-center gap-2 rounded-0 ps-3">
+                        <i class="bi bi-cash-stack"></i>
+                        <span>SPP</span>
                     </a>
                     <a href="#" class="nav-link d-flex align-items-center gap-2 rounded-0 ps-3">
                         <i class="bi bi-graph-up"></i>
